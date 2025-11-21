@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/build/Debug/_deps/flac-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Debug/_deps/freetype-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Debug/_deps/freetype-src/subprojects/dlg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Debug/_deps/imgui-sfml-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Debug/_deps/imgui-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Debug/_deps/ogg-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Debug/_deps/sfml-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Debug/_deps/vorbis-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Release/_deps/flac-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Release/_deps/freetype-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Release/_deps/freetype-src/subprojects/dlg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Release/_deps/imgui-sfml-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Release/_deps/imgui-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Release/_deps/ogg-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Release/_deps/sfml-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/Release/_deps/vorbis-src" vcs="Git" />
+  </component>
+</project>
