@@ -8,9 +8,9 @@
 
 namespace IVJ {
 
-    class EscenaCuadros : public CE::Escena {
+    class EscenaAustria : public CE::Escena {
     public:
-        EscenaCuadros() : CE::Escena() { }
+        EscenaAustria() : CE::Escena() { }
 
         void onInit();
         void onFinal();

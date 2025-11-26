@@ -48,7 +48,7 @@ namespace IVJ
         {
             if(accion.getNombre() == "esc")
             {
-                CE::GestorEscenas::Get().cambiarEscena("Cuadros");
+                CE::GestorEscenas::Get().cambiarEscena("Austria");
             }
         }
     }

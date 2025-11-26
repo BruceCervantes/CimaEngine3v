@@ -22,7 +22,7 @@ namespace CE
         OnInit();
 
         auto frameAnt = std::chrono::high_resolution_clock::now();
-        float ms = 0.01666f; // ~60 FPS
+        float ms = 0.008333f; // ~60 FPS
         sf::Clock clock;
 
         while (miApp->EstaCorriendo())

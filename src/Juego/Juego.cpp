@@ -1,5 +1,5 @@
 #include "Juego.hpp"
-#include "Juego/Escenas/EscenaCuadro.hpp"
+#include "Juego/Escenas/EscenaAustria.hpp"
 #include "Juego/Escenas/EscenaCirculo.hpp"
 #include "Juego/Escenas/EscenaMuerte.hpp"
 #include "Juego/Escenas/Escena_Menu.hpp"
@@ -21,14 +21,14 @@ namespace IVJ {
         std::cout << "Inicializando Juego\n";
 
         // 🔹 Registrar las escenas
-        CE::GestorEscenas::Get().registrarEscena("Cuadros", std::make_shared<EscenaCuadros>());
+        CE::GestorEscenas::Get().registrarEscena("Austria", std::make_shared<EscenaAustria>());
         CE::GestorEscenas::Get().registrarEscena("Circulos", std::make_shared<EscenaCirculos>());
         CE::GestorEscenas::Get().registrarEscena("Muerte", std::make_shared<EscenaMuerte>());
         CE::GestorEscenas::Get().registrarEscena("Menu", std::make_shared<EscenaMenu>());
         CE::GestorEscenas::Get().registrarEscena("Ejemplo", std::make_shared<EscenaEjemplos>());
 
         // 🔹 Escena inicial
-        CE::GestorEscenas::Get().cambiarEscena("Ejemplo");
+        CE::GestorEscenas::Get().cambiarEscena("Menu");
         escenaActual = &CE::GestorEscenas::Get().getEscenaActual();
 
 
@@ -76,7 +76,7 @@ namespace IVJ {
         escenaActual = &CE::GestorEscenas::Get().getEscenaActual();
         escenaActual->onUpdate(dt);
         if (escenaActual->getPool().getPool().empty())
-            CE::GestorEscenas::Get().cambiarEscena("Cuadros");
+            CE::GestorEscenas::Get().cambiarEscena("Austria");
 
     }
 

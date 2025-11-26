@@ -1,6 +1,8 @@
 #pragma once
+#include <memory>
 #include <string>
 #include "../Utils/Vector2D.hpp"
+#include <map>
 
 namespace IVJ {
     class FSMSonido;
@@ -213,5 +215,38 @@ namespace CE
         sf::Text m_texto;
     };
 
+    class IShader : public IComponentes
+    {
+    public:
+        enum class ShaderVars
+        {
+            FLOAT,
+            VEC2F,
+            VEC3F,
+            VEC4F,
+            MAT3,
+            MAT4,
+            TEX
+        };
+    public:
+        explicit IShader(const std::string& vert, const std::string& frag);
+        ~IShader() override{};
+        void setEscalar(const std::string& key, float* valor);
+        void setVector2(const std::string& key, sf::Vector2f* valor);
+        void setVector3(const std::string& key, sf::Vector3f* valor);
+        void setVector4(const std::string& key, sf::Glsl::Vec4* valor);
+        void setMat3(const std::string& key, sf::Glsl::Mat3* valor);
+        void setMat4(const std::string& key, sf::Glsl::Mat4* valor);
+        void setTextura(const std::string& key, sf::Texture* valor);
+        void cambiarShader(const std::string& vert, const std::string& frag);
+    public:
+        sf::Shader m_shader;
+        std::string m_fragshaderFile;
+        std::string m_vertshaderFile;
+        //al sacarlo hay que castear a un tipo de dato
+        //m_vars["tiempo"] = &tiempo; (float*)m_vars["tiempo"];
+        //m_vars["textura"] = &sprite->getTexture(); (sf::Texture*)m_vars["textura"];
+        std::map<std::string,std::pair<IShader::ShaderVars,void*>> m_vars;
+    };
 
 }

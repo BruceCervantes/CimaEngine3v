@@ -32,8 +32,8 @@ add_executable(CimaEngine3v main.cpp
         ../../../../Escritorio/CimaEngine3v/src/Motor/Primitivos/Escena.hpp
         ../../../../Escritorio/CimaEngine3v/src/Motor/Primitivos/GestorEscenas.cpp
         ../../../../Escritorio/CimaEngine3v/src/Motor/Primitivos/GestorEscenas.hpp
-        ../Juego/Escenas/EscenaCuadro.cpp
-        ../Juego/Escenas/EscenaCuadro.hpp
+        ../Juego/Escenas/EscenaAustria.cpp
+        ../Juego/Escenas/EscenaAustria.hpp
         ../Juego/Escenas/EscenaCirculo.cpp
         ../Juego/Escenas/EscenaCirculo.hpp
         ../Juego/Escenas/EscenaMuerte.cpp

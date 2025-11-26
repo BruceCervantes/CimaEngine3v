@@ -1,4 +1,4 @@
-#include "EscenaCuadro.hpp"
+#include "EscenaAustria.hpp"
 #include "../Figuras/Figura.hpp"
 #include "../../Motor/Camaras/CamarasGestor.hpp"
 #include "../../Motor/Primitivos/GestorEscenas.hpp"
@@ -15,7 +15,7 @@
 #include "Motor/Primitivos/GestorSonido.hpp"
 
 namespace IVJ {
-    void EscenaCuadros::onInit() {
+    void EscenaAustria::onInit() {
         if (!inicializar) return;
 
         auto& sndMan = CE::GestorSonido::Get();
@@ -41,10 +41,10 @@ namespace IVJ {
 
 
         CE::GestorAssets::Get().agregarTextura("hola_pink", ASSETS "/sprites_aliens/alienPink.png", CE::Vector2D{0,0}, CE::Vector2D{256, 512});
-        CE::GestorAssets::Get().agregarTextura("hamilton", ASSETS "/sprites_aliens/F1(Hamilton)-Sheet.png",CE::Vector2D{0,0},CE::Vector2D{320,96});
-        CE::GestorAssets::Get().agregarTextura("verstappen", ASSETS "/sprites_aliens/F1(Verstappen)-Sheet.png",CE::Vector2D{0,0},CE::Vector2D{64,96});
+        CE::GestorAssets::Get().agregarTextura("hamilton", ASSETS "/f1/F1(Hamilton)-Sheet.png",CE::Vector2D{0,0},CE::Vector2D{320,96});
+        CE::GestorAssets::Get().agregarTextura("verstappen", ASSETS "/f1/F1(Verstappen)-Sheet.png",CE::Vector2D{0,0},CE::Vector2D{64,96});
         CE::GestorAssets::Get().agregarTextura("jugador", ASSETS "/f1/Jugador.png",CE::Vector2D{0,0},CE::Vector2D{320,192});
-        CE::GestorAssets::Get().agregarTextura("senna", ASSETS "/sprites_aliens/F1(Senna)-Sheet.png",CE::Vector2D{0,0},CE::Vector2D{64,96});
+        CE::GestorAssets::Get().agregarTextura("senna", ASSETS "/f1/F1(Senna)-Sheet.png",CE::Vector2D{0,0},CE::Vector2D{64,96});
         CE::GestorAssets::Get().agregarTextura("mapa", ASSETS "/atlas/Mapa(AustriaCapas).png",CE::Vector2D{0,0},CE::Vector2D{5000,3000});
 
         //if (!bg[0].loadTileMap(ASSETS "/atlas/mapa_1_layer_1.txt"))
@@ -100,6 +100,18 @@ namespace IVJ {
 
         // 🔹 Cámara
 
+        auto camTrack = std::make_shared<CE::CamaraTracking>(
+            CE::Vector2D{960, 540},
+            CE::Vector2D{800, 500}
+            );
+
+        CE::GestorCamaras::Get().agregarCamara(camTrack);
+        CE::GestorCamaras::Get().setCamaraActiva( (int)CE::GestorCamaras::Get().getListaCamaras().size() - 1);
+        CE::GestorCamaras::Get().getCamaraActiva().lockEnObjeto(objetos[1]);
+
+        camTrack->setFollowOffset({0.f, -170.f});
+        camTrack->setSmoothing(5.0f);
+
         CE::GestorCamaras::Get().agregarCamara(
                     std::make_shared<CE::CamaraCuadro>(
                         CE::Vector2D{2500, 1500}, CE::Vector2D{5000, 3000}));
@@ -111,9 +123,9 @@ namespace IVJ {
         inicializar = false;
     }
 
-    void EscenaCuadros::onFinal() { }
+    void EscenaAustria::onFinal() { }
 
-    void EscenaCuadros::onUpdate(float dt) {
+    void EscenaAustria::onUpdate(float dt) {
         MoverJugador(objetos.getPool(),dt, 3000, 5000);
         SistemaMovimientoEnemigo(enemigos.getPool(),dt);
         SistemaMovimientoAuto(objetos.getPool(),dt);
@@ -132,7 +144,7 @@ namespace IVJ {
         enemigos.borrarPool();
     }
 
-    void EscenaCuadros::onInputs(const CE::Botones& accion) {
+    void EscenaAustria::onInputs(const CE::Botones& accion) {
         auto ctrl = jugador->getComponente<CE::IControl>();
 
         if (accion.getTipo() == CE::Botones::TipoAccion::OnPress) {
@@ -148,7 +160,7 @@ namespace IVJ {
             if (accion.getNombre()=="izquierda") ctrl->izq = false;
         }
     }
-void EscenaCuadros::onRender() {
+void EscenaAustria::onRender() {
 
     for (auto& b: bg)
         CE::Render::Get().AddToDraw(b);

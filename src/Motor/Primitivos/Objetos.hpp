@@ -70,7 +70,7 @@ namespace CE
                     " velocidad: (" + std::to_string(t->velocidadForward) + ") |"
                 " anguloVolante: (" + std::to_string(t->angulo) + ")" ;      }
 
-        int getId(){return id;}
+            int getId(){return id;}
 
         std::shared_ptr<IStats>& getStats()
         {

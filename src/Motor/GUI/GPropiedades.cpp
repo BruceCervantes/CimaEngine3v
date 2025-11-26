@@ -37,7 +37,7 @@ namespace CE
             ImGui::Separator();
         if(panelIControl(objeto_select->getComponente<IControl>()))
             ImGui::Separator();
-        //if(panelShaders(objeto_select->getComponente<IShader>()))
+        if(panelShaders(objeto_select->getComponente<IShader>()))
             ImGui::Separator();
         //if(panelIPaths(objeto_select->getComponente<IPaths>()))
         {
@@ -117,7 +117,7 @@ namespace CE
 
         return true;
     }
-    /*
+
     bool GPropiedades::panelShaders(IShader *shader)
     {
         if(!shader) return false;
@@ -262,7 +262,7 @@ namespace CE
 
         return true;
     }
-    */
+
     void GPropiedades::seleccionarObjeto(Objeto* ref)
     {
         objeto_select = ref;

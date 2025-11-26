@@ -57,8 +57,6 @@ namespace CE {
     };
 
 
-    ;
-
     class CamaraTracking : public Camara {
 
     public:
